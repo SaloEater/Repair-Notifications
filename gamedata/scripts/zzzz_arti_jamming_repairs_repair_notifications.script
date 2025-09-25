@@ -1,5 +1,6 @@
 if not zzzz_arti_jamming_repairs then
 	printf("zzzz_arti_jamming_repairs not found | unloading module")
+	return
 end
 printf("loading module: zzzz_arti_jamming_repairs_repair_notifications")
 

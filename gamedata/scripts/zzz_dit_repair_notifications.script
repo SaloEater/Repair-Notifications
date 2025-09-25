@@ -40,7 +40,6 @@ item_parts.func_disassembly = function(obj,obj_d)
 
     obj_d = obj_d or get_suitable_dtool(obj)
 
-    printf("zz_fit")
     if IsWeapon(obj) and (not obj_d or obj_d:section() ~= "leatherman_tool") then
         actor_menu.set_item_news('fail', 'weapon', "st_dis_text_3", "", ui_item.get_sec_name("leatherman_tool"))
         return
@@ -79,34 +78,5 @@ item_parts.func_disassembly = function(obj,obj_d)
         item_parts.disassembly_outfit(obj, obj_d)
     else
         item_parts.disassembly_item(obj, obj_d)
-    end
-end
-
-actor_menu.set_item_news = function (color, type_m, text, ...)
-    local t = {...}
-    local ico = "leatherman_tool"
-
-    local s_color, e_color
-    if color then
-        if color == 'success' then
-            s_color = utils_xml.get_color("d_green")
-            e_color = utils_xml.get_color("pda_white")
-        elseif color == 'fail' then
-            s_color = utils_xml.get_color("d_red")
-            e_color = utils_xml.get_color("pda_white")
-        end
-    end
-
-    printf("t1: %s, t2: %s, t3: %s", t[1], t[2], t[3])
-    if type_m then
-        if type_m == 'detail' then
-            news_manager.send_tip(db.actor, string.format(game.translate_string(text), s_color, e_color, t[1]), nil, ico, 6000)
-        elseif type_m == 'weapon' then
-            news_manager.send_tip(db.actor, string.format(game.translate_string(text), s_color, t[1], e_color, t[2]), nil, ico, 6000)
-        elseif type_m == 'weapon_ammo' then
-            news_manager.send_tip(db.actor, string.format(game.translate_string(text), s_color, t[1], e_color, t[2], t[3]), nil, ico, 6000)
-        elseif type_m == 'npc' then
-            news_manager.send_tip(db.actor, string.format(game.translate_string(text), s_color, t[1], t[2], e_color, t[3]), nil, ico, 6000)
-        end
     end
 end
