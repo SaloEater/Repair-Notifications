@@ -1,6 +1,10 @@
 local clr_w  = utils_xml.get_color("pda_white")
 
 function item_charges_string(kit, left)
+    if left == nil then
+        left = 0
+    end
+
     local maximum = kit:get_max_uses()
     local section = kit:section()
     local state = ""
@@ -19,6 +23,10 @@ function item_charges_string(kit, left)
 end
 
 function item_condition_string(section, left)
+    if left == nil then
+        left = 0
+    end
+
     local state = ""
 
     if left <= 0 then
