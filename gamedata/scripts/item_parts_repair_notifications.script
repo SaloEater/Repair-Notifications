@@ -227,8 +227,6 @@ function timer_disassembly_outfit(npc_id, result_details, result_conditions, nam
 
     end
 
-    table.sort(result_details)
-
     -- Creating parts in inventory
     for i=1,#result_details do
         if result_conditions[i] then
