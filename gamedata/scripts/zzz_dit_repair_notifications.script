@@ -76,6 +76,8 @@ item_parts.func_disassembly = function(obj,obj_d)
         item_parts.disassembly_weapon(obj, obj_d)
     elseif IsOutfit(obj) or IsHeadgear(obj) then
         item_parts.disassembly_outfit(obj, obj_d)
+    elseif ammo_maker and IsAmmo(obj) then
+        ammo_maker.breakdown(obj, obj_d, false)
     else
         item_parts.disassembly_item(obj, obj_d)
     end
